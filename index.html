@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a31">
+  <meta name="description" content="RedStar Digital Service provides affordable data entry, Excel, data management and business support services.">
+  <title>RedStar Digital Service | Data & Business Support</title>
+  <style>
+    :root {
+      --navy:#101a31; --navy2:#172744; --red:#e63946; --red-dark:#c92c39;
+      --ink:#182235; --muted:#647087; --pale:#f4f6fa; --white:#fff;
+      --line:#e5e9f0; --green:#168653;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,Arial,Helvetica,sans-serif; color:var(--ink); background:#fff; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { background:rgba(16,26,49,.97); color:white; position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(255,255,255,.1); }
+    .nav { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.3px; }
+    .brand-mark { width:38px; height:38px; border-radius:11px; display:grid; place-items:center; background:var(--red); color:white; font-weight:900; font-size:20px; }
+    .brand span:last-child { line-height:1.15; }
+    .brand small { display:block; font-size:10px; color:#cbd3e2; font-weight:500; letter-spacing:1.5px; margin-top:4px; }
+    nav { display:flex; align-items:center; gap:25px; font-size:14px; color:#e2e7f0; }
+    nav a:hover { color:#fff; }
+    .nav-cta,.btn { display:inline-flex; align-items:center; justify-content:center; border:0; border-radius:9px; padding:12px 18px; font-weight:700; cursor:pointer; transition:.2s; }
+    .nav-cta,.btn-red { background:var(--red); color:white; }
+    .nav-cta:hover,.btn-red:hover { background:var(--red-dark); transform:translateY(-1px); }
+    .btn-outline { border:1px solid rgba(255,255,255,.45); color:#fff; background:transparent; }
+    .hero { color:white; background:radial-gradient(circle at 85% 20%,#293d61 0,transparent 32%),linear-gradient(125deg,var(--navy),#172b4b); padding:94px 0 88px; overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns:1.25fr .75fr; align-items:center; gap:45px; }
+    .eyebrow { color:#ff8a92; text-transform:uppercase; letter-spacing:2px; font-weight:800; font-size:12px; }
+    h1 { font-size:clamp(38px,6vw,62px); line-height:1.08; letter-spacing:-1.7px; margin:16px 0 18px; }
+    h1 span { color:#ff6671; }
+    .hero p { max-width:620px; color:#d4dceb; font-size:17px; margin:0 0 27px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:20px; padding:28px; box-shadow:0 22px 60px rgba(0,0,0,.18); }
+    .hero-card .big { font-size:38px; font-weight:850; color:white; line-height:1.1; }
+    .hero-card p { font-size:14px; margin:8px 0 20px; }
+    .mini-list { display:grid; gap:12px; color:#f0f3f9; font-size:14px; }
+    .mini-list span:before { content:"✓"; color:#ff7c85; font-weight:900; margin-right:10px; }
+    section { padding:76px 0; }
+    .section-head { text-align:center; max-width:680px; margin:0 auto 38px; }
+    .section-head .eyebrow { color:var(--red); }
+    h2 { font-size:clamp(28px,4vw,39px); line-height:1.2; margin:9px 0 12px; letter-spacing:-.7px; }
+    .section-head p { color:var(--muted); margin:0; }
+    .services { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .service { border:1px solid var(--line); border-radius:14px; padding:23px; background:white; }
+    .service-icon { width:43px; height:43px; border-radius:12px; display:grid; place-items:center; background:#fff0f1; color:var(--red); font-size:21px; margin-bottom:15px; }
+    .service h3 { margin:0 0 6px; font-size:17px; }
+    .service p { margin:0; color:var(--muted); font-size:14px; }
+    .pricing-section { background:var(--pale); }
+    .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; align-items:stretch; }
+    .price-card { background:white; border:1px solid var(--line); border-radius:16px; padding:25px; display:flex; flex-direction:column; }
+    .price-card.featured { border:2px solid var(--red); box-shadow:0 12px 32px rgba(230,57,70,.10); }
+    .price-card.premium { background:var(--navy); color:white; border-color:var(--navy); }
+    .price-card h3 { font-size:17px; margin:0 0 8px; }
+    .price { font-size:32px; font-weight:850; letter-spacing:-1px; color:var(--red); line-height:1.2; margin:5px 0; }
+    .premium .price { color:#ff7780; }
+    .period { color:var(--muted); font-size:13px; }
+    .premium .period,.premium li { color:#d0d8e6; }
+    .price-card ul { padding-left:19px; margin:18px 0 22px; color:#4f5c71; font-size:14px; flex:1; }
+    .price-card li { margin:7px 0; }
+    .price-card .btn { width:100%; }
+    .price-note { text-align:center; max-width:800px; margin:27px auto 0; color:var(--muted); font-size:13px; }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .why { padding:20px 5px; }
+    .why strong { display:block; font-size:17px; margin-bottom:5px; }
+    .why p { color:var(--muted); font-size:14px; margin:0; }
+    .cta-band { background:linear-gradient(120deg,var(--navy),#1d3152); color:white; border-radius:20px; padding:38px; display:flex; justify-content:space-between; align-items:center; gap:25px; }
+    .cta-band h2 { margin:0 0 8px; }
+    .cta-band p { color:#d1d9e7; margin:0; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; }
+    .contact-card { border:1px solid var(--line); border-radius:16px; padding:26px; }
+    .contact-card h3 { margin:0 0 8px; }
+    .contact-card p { color:var(--muted); font-size:14px; }
+    .contact-link { display:flex; align-items:center; gap:13px; margin-top:18px; padding:14px; border-radius:12px; background:var(--pale); font-weight:700; overflow-wrap:anywhere; }
+    .contact-link .bubble { width:38px; height:38px; display:grid; place-items:center; border-radius:50%; color:white; background:var(--green); flex:none; }
+    .contact-link.insta .bubble { background:var(--red); }
+    .only-wa { display:inline-block; color:var(--red-dark); background:#fff0f1; padding:6px 10px; border-radius:7px; font-size:12px; font-weight:800; margin-top:5px; }
+    footer { background:#0b1426; color:#c7d0df; padding:28px 0; font-size:13px; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:15px; flex-wrap:wrap; }
+    .footer-inner strong { color:white; }
+    .wa-float { position:fixed; right:20px; bottom:20px; z-index:20; width:57px; height:57px; border-radius:50%; background:#20b86a; color:white; display:grid; place-items:center; font-size:26px; box-shadow:0 8px 25px rgba(0,0,0,.22); }
+    @media(max-width:800px) {
+      nav { gap:13px; font-size:12px; } .nav-cta { padding:9px 12px; }
+      .hero-grid { grid-template-columns:1fr; } .hero-card { max-width:520px; }
+      .services,.pricing { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:560px) {
+      .container { width:min(100% - 30px,1120px); }
+      .nav { min-height:64px; flex-wrap:wrap; padding:12px 0; }
+      nav { width:100%; overflow-x:auto; padding-bottom:3px; justify-content:space-between; }
+      nav a { white-space:nowrap; }
+      .nav-cta { display:none; }
+      .hero { padding:65px 0 60px; }
+      section { padding:58px 0; }
+      .services,.pricing,.why-grid,.contact-grid { grid-template-columns:1fr; }
+      .cta-band { padding:27px; align-items:flex-start; flex-direction:column; }
+      .price-card { padding:22px; }
+      .hero-card { padding:23px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="RedStar Digital Service home">
+      <span class="brand-mark">R</span>
+      <span>REDSTAR DIGITAL SERVICE<small>DATA & BUSINESS SUPPORT</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#why-us">Why Us</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/918100181415?text=Hello%20RedStar%20Digital%20Service%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">WhatsApp Us</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Reliable support for growing businesses</div>
+        <h1>Your Business Data.<br><span>Our Responsibility.</span></h1>
+        <p>Affordable data entry and business support to help small and medium-sized companies keep their information organised and their routine work moving.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%20RedStar%20Digital%20Service%2C%20I%20would%20like%20a%20custom%20quotation." target="_blank" rel="noopener">Request a Quote</a>
+          <a class="btn btn-outline" href="#services">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="eyebrow">Business support made simple</div>
+        <div class="big">Flexible.<br>Affordable.<br>Organised.</div>
+        <p>Choose a one-time task or ongoing support based on your business requirements.</p>
+        <div class="mini-list">
+          <span>Clear, agreed workload</span>
+          <span>Custom quotations available</span>
+          <span>WhatsApp-only enquiries</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What we do</div>
+        <h2>Our Services</h2>
+        <p>Practical data and documentation support for everyday business operations.</p>
+      </div>
+      <div class="services">
+        <article class="service"><div class="service-icon">⌨</div><h3>Data Entry & Management</h3><p>Enter, organise and maintain business information in structured formats.</p></article>
+        <article class="service"><div class="service-icon">▦</div><h3>Excel & Google Sheets</h3><p>Spreadsheet creation, formatting, sorting and data organisation.</p></article>
+        <article class="service"><div class="service-icon">✓</div><h3>Data Cleaning</h3><p>Help identify duplicates, inconsistent entries and formatting issues.</p></article>
+        <article class="service"><div class="service-icon">▤</div><h3>Database Management</h3><p>Organise and update agreed customer, sales or inventory records.</p></article>
+        <article class="service"><div class="service-icon">▧</div><h3>Document Formatting</h3><p>Format Word documents, PDFs and other business documents.</p></article>
+        <article class="service"><div class="service-icon">▥</div><h3>Business Reporting</h3><p>Prepare clear summaries and basic reports from client-provided data.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Simple starting prices</div>
+        <h2>Our Pricing</h2>
+        <p>Choose the service type that suits your requirement. Custom quotations are available for larger or more complex projects.</p>
+      </div>
+      <div class="pricing">
+        <article class="price-card">
+          <h3>Bulk Data Entry</h3><div class="price">₹100</div><div class="period">Per 300 standard records</div>
+          <ul><li>Basic data entry</li><li>Excel or Google Sheets</li><li>Clean, clearly provided data</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20am%20interested%20in%20Bulk%20Data%20Entry.%20Please%20share%20the%20details." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+        <article class="price-card">
+          <h3>Particular Tasks</h3><div class="price">₹400–₹600</div><div class="period">Per agreed task</div>
+          <ul><li>Small formatting assignments</li><li>Basic data cleaning</li><li>Document or spreadsheet tasks</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20have%20a%20particular%20data%20or%20document%20task.%20Can%20I%20share%20the%20details%20for%20a%20quotation%3F" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+        <article class="price-card">
+          <h3>Daily Support</h3><div class="price">₹1,500</div><div class="period">Per working day</div>
+          <ul><li>Agreed daily task list</li><li>Data and documentation support</li><li>Workload confirmed in advance</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20am%20interested%20in%20Daily%20Support.%20Please%20discuss%20my%20workload." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+        <article class="price-card">
+          <h3>Weekly Support</h3><div class="price">₹7,000</div><div class="period">Per 5 working days</div>
+          <ul><li>Regular business support</li><li>Agreed weekly deliverables</li><li>Progress updates</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20am%20interested%20in%20Weekly%20Support.%20Please%20discuss%20my%20requirements." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+        <article class="price-card featured">
+          <h3>Monthly Support</h3><div class="price">₹25,000</div><div class="period">Per 20 working days</div>
+          <ul><li>Ongoing data support</li><li>Regular spreadsheet and database tasks</li><li>Agreed monthly workload</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20am%20interested%20in%20Monthly%20Support.%20Please%20share%20the%20details." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+        <article class="price-card premium">
+          <h3>Advanced Business Support</h3><div class="price">₹30,000</div><div class="period">Per month · Custom scope</div>
+          <ul><li>Advanced spreadsheet management</li><li>Data organisation and verification</li><li>Business summaries and reports</li><li>Priority task coordination</li></ul>
+          <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%2C%20I%20am%20interested%20in%20Advanced%20Business%20Support.%20Please%20discuss%20a%20custom%20scope." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+      </div>
+      <p class="price-note">All prices are starting prices. Final charges depend on the agreed workload, complexity, source quality and deadline. No plan includes unlimited work. Additional work is quoted separately before it begins.</p>
+    </div>
+  </section>
+
+  <section id="why-us">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Our approach</div>
+        <h2>Why Choose RedStar?</h2>
+        <p>Clear expectations and flexible support for businesses that need help with routine data work.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why"><strong>Affordable Options</strong><p>Starting prices for small tasks, with custom quotations for larger requirements.</p></div>
+        <div class="why"><strong>Agreed Workload</strong><p>Tasks, quantities and delivery timelines are confirmed before work starts.</p></div>
+        <div class="why"><strong>Flexible Support</strong><p>Choose one-time, daily, weekly or monthly assistance based on your needs.</p></div>
+      </div>
+      <div class="cta-band">
+        <div><h2>Have a project in mind?</h2><p>Share your task details and request a custom quotation.</p></div>
+        <a class="btn btn-red" href="https://wa.me/918100181415?text=Hello%20RedStar%20Digital%20Service%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Discuss Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Contact Us</h2>
+        <p>For all enquiries, please contact us through WhatsApp or Instagram.</p>
+        <span class="only-wa">WHATSAPP MESSAGES ONLY · NO PHONE CALLS</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p>Send us your requirements, sample workload or questions. We will discuss the scope and quotation through WhatsApp.</p>
+          <a class="contact-link" href="https://wa.me/918100181415?text=Hello%20RedStar%20Digital%20Service%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">
+            <span class="bubble">✆</span><span>+91 8100181415<br><small>WhatsApp messages only</small></span>
+          </a>
+        </div>
+        <div class="contact-card">
+          <h3>Instagram</h3>
+          <p>Follow our Instagram profile for updates and service information.</p>
+          <a class="contact-link insta" href="https://www.instagram.com/redstardigitalservice/" target="_blank" rel="noopener">
+            <span class="bubble">◎</span><span>@redstardigitalservice<br><small>Visit our Instagram profile</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div><strong>REDSTAR DIGITAL SERVICE</strong><br>Affordable Data Entry & Business Support</div>
+    <div>© <span id="year">2026</span> RedStar Digital Service. All rights reserved.</div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/918100181415?text=Hello%20RedStar%20Digital%20Service%2C%20I%20would%20like%20to%20enquire." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">✆</a>
+</body>
+</html>
